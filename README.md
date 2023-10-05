@@ -1,16 +1,18 @@
-### Hi there 👋
+import 'package:flutter/material.dart';
+import 'package:nagivation_example/main_page.dart';
 
-<!--
-**RickyKurniawan12/rickykurniawan12** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MainPage(),
+    );
+  }
+}

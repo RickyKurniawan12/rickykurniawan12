@@ -1,28 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:nagivation_example/second_page.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+void main() => runApp(new MyApp());
 
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Main Page'),
+    return MaterialApp(
+      title: 'Flutter Weather App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SecondPage(data: 'Ini data'),
+      home: Scaffold(
+          backgroundColor: Colors.green,
+          appBar: AppBar(
+            title: const Text('Flutter Weather App'),
+          ),
+          body: Container(
+              child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+            Column(
+              children: <Widget>[
+                const Text('Jakarta', style: TextStyle(color: Colors.white)),
+                const Text('Sunny',
+                    style: TextStyle(color: Colors.white, fontSize: 32.0)),
+                const Text('34°C', style: TextStyle(color: Colors.white)),
+                Image.network('https://openweathermap.org/img/w/01d.png'),
+                const Text('oct 28, 2023',
+                    style: TextStyle(color: Colors.white)),
+                const Text('18:30', style: TextStyle(color: Colors.white)),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon: Icon(Icons.refresh),
+                tooltip: 'Refresh',
+                onPressed: () => null,
+                color: Colors.white,
               ),
-            );
-          },
-          child: const Text('Go to Second Page'),
-        ),
-      ),
+            )
+          ]))),
     );
   }
 }
